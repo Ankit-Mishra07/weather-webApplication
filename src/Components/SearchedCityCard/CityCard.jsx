@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-const CityCard = ({ citydata }) => {
+const CityCard = ({ citydata, handleCardClick }) => {
   return (
     <>
       <Box
@@ -13,6 +13,7 @@ const CityCard = ({ citydata }) => {
         }
         borderRadius={5}
         cursor={"pointer"}
+        onClick={() => handleCardClick(citydata.name)}
       >
         {citydata.name}
       </Box>

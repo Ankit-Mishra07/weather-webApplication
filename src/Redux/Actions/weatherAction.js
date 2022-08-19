@@ -24,8 +24,8 @@ export const weatherDataByCurrentLocation = () => (dispatch) => {
       const data = await fetchForcastData(latitude, longitude);
       const weatherForcastData = data;
       const payload = { getCurrentData, weatherForcastData };
-      dispatch({ type: WEATHER_DATA_SUCCESS, payload });
       setLocal("weather_data", payload);
+      dispatch({ type: WEATHER_DATA_SUCCESS, payload });
     }
 
     async function error() {

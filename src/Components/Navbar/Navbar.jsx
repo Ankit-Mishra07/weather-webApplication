@@ -5,16 +5,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { weatherDataByCurrentLocation } from "../../Redux/Actions/weatherAction";
 import { getLocal } from "../../utils/local";
 const Navbar = () => {
-  const [showSearched, setShowSearched] = useState(false);
-  const [input, setInput] = useState();
   const { isCityLoading, CityError, cityNames } = useSelector(
     (state) => state.cityState
   );
-  const dispatch = useDispatch();
   const { CurrentCityData, ForcastData, isDataLoading, dataError } =
     useSelector((state) => state.weatherState);
+  const [showSearched, setShowSearched] = useState(false);
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
+  const handleCardClick = (cityname) => {
+    setShowSearched(false);
+    setInput(cityname);
+  };
   useEffect(() => {
     dispatch(weatherDataByCurrentLocation());
+    setInput(getLocal("weather_data").getCurrentData.name);
   }, []);
   return (
     <>
@@ -57,9 +63,12 @@ const Navbar = () => {
                 .map(
                   (el, i) =>
                     i < 5 && (
-                      <>
-                        <CityCard citydata={el} />
-                      </>
+                      <div key={i}>
+                        <CityCard
+                          citydata={el}
+                          handleCardClick={handleCardClick}
+                        />
+                      </div>
                     )
                 )}
           </Box>

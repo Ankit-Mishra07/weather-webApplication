@@ -18,7 +18,6 @@ export const weatherDataReducer = (state = init, { type, payload }) => {
       return { ...state, isDataLoading: true };
     case WEATHER_DATA_SUCCESS:
       return {
-        ...state,
         isDataLoading: false,
         dataError: false,
         CurrentCityData: payload.getCurrentData,

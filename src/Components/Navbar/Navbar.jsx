@@ -1,14 +1,21 @@
 import { Flex, InputGroup, InputLeftAddon, Input, Box } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CityCard from "../SearchedCityCard/CityCard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { weatherDataByCurrentLocation } from "../../Redux/Actions/weatherAction";
+import { getLocal } from "../../utils/local";
 const Navbar = () => {
   const [showSearched, setShowSearched] = useState(false);
   const [input, setInput] = useState();
   const { isCityLoading, CityError, cityNames } = useSelector(
     (state) => state.cityState
   );
-  console.log(cityNames);
+  const dispatch = useDispatch();
+  const { CurrentCityData, ForcastData, isDataLoading, dataError } =
+    useSelector((state) => state.weatherState);
+  useEffect(() => {
+    dispatch(weatherDataByCurrentLocation());
+  }, []);
   return (
     <>
       <Flex

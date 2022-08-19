@@ -3,6 +3,7 @@ import {
   CITY_FAIL,
   CITY_REQUEST,
   CITY_SUCCESS,
+  CURRENT_CITY,
 } from "../ActionTypes/cityNameActionTypes";
 
 const init = {

@@ -1,3 +1,3 @@
-export const DATA_REQUEST = "DATA_REQUEST";
-export const DATA_SUCCESS = "DATA_SUCCESS";
-export const DATA_FAIL = "DATA_FAIL";
+export const WEATHER_DATA_REQUEST = "DATA_REQUEST";
+export const WEATHER_DATA_SUCCESS = "DATA_SUCCESS";
+export const WEATHER_DATA_FAIL = "DATA_FAIL";

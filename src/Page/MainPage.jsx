@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CityName from "../Components/CityNameTemp/CityName";
 import Descriptive from "../Components/DescriptiveDataCard/Descriptive";
+import ForCastedData from "../Components/ForCastedData/ForCastedData";
 import Map from "../Components/Map/Map";
 import Navbar from "../Components/Navbar/Navbar";
 import SunGraph from "../Components/SunGraph/SunGraph";
@@ -26,7 +27,7 @@ const MainPage = () => {
       >
         <CityName />
         <Descriptive />
-        <Map />
+        {/* <Map /> */}
       </Grid>
       <br />
       <br />
@@ -39,6 +40,11 @@ const MainPage = () => {
         <SunGraph />
         <TempGraph />
       </Grid>
+      <br />
+      <br />
+      <ForCastedData />
+      <br />
+      <br />
     </>
   );
 };

@@ -64,7 +64,6 @@ const SunGraph = () => {
       },
     ],
   };
-  console.log(ForcastData);
   return (
     <Box className="custom__box" h={400}>
       <Flex justifyContent={"space-between"}>

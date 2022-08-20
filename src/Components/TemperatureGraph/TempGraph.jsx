@@ -1,24 +1,27 @@
-import { Box, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { fetchDataForHourly } from "../../FetchRequests/FetchWeatherData";
-import { graphObj } from "./GraphObject.js";
+
 import Chart from "react-apexcharts";
+import { getLocal, setLocal } from "../../utils/local";
+const API_KEY = "c0d290eeee9dd399b017a6d2ba64be7e";
+const baseUrl = "https://api.openweathermap.org/data/2.5";
 const TempGraph = () => {
   const [data, setData] = useState();
   const [time, setTime] = useState();
-  const [temp, setTemp] = useState();
+  const [temp, setTemp] = useState([]);
   const { CurrentCityData, ForcastData, isDataLoading, dataError } =
     useSelector((state) => state.weatherState);
   const times = [];
   const temps = [];
   const fetchHourly = async () => {
-    let dat = await fetchDataForHourly(
-      CurrentCityData.coord.lat,
-      CurrentCityData.coord.lon
+    const res = await fetch(
+      `${baseUrl}/onecall?lat=${CurrentCityData.coord.lat}&lon=${CurrentCityData.coord.lat}&exclude=minutely&units=metric&appid=${API_KEY}`
     );
+    const dat = await res.json();
+    console.log(dat);
+    setLocal("hourly_data", dat);
     setData(dat);
-    console.log(data);
   };
   function timeArray(timeStamp) {
     let timer = new Date(timeStamp * 1000);
@@ -28,13 +31,7 @@ const TempGraph = () => {
       hour12: true,
     });
   }
-  data &&
-    data.hourly.reverse().map((el, i) => {
-      if (i < 12) {
-        temps.push(el.temp);
-        times.push(timeArray(el.dt));
-      }
-    });
+
   const obj = {
     options: {
       chart: {
@@ -50,20 +47,24 @@ const TempGraph = () => {
         lineCap: "round",
       },
       xaxis: {
-        categories: time,
+        categories: time ? time : [],
       },
     },
     series: [
       {
         name: "Temprature",
-        data: temp,
+        data: temp ? [...temp] : [],
       },
     ],
   };
   useEffect(() => {
-    (async function () {
-      await fetchHourly();
-    })();
+    fetchHourly();
+    getLocal("hourly_data")?.hourly.map((el, i) => {
+      if (i < 12) {
+        temps.push(el.temp);
+        times.push(timeArray(el.dt));
+      }
+    });
     setTemp(temps);
     setTime(times);
   }, []);

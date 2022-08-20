@@ -34,7 +34,6 @@ const ForCastedData = () => {
 
   const getDayName = (timeStamp) => {
     let dayname = new Date(timeStamp * 1000).toDateString().split(" ");
-    console.log(dayname);
     let monthno = months.indexOf(dayname[1]);
     let day = days[temp.indexOf(dayname[0])];
     let date = dayname[2];
@@ -57,134 +56,136 @@ const ForCastedData = () => {
       >
         {ForcastData.map((elem, index) =>
           index === 0 ? (
-            <>
-              <Box
-                className="custom__box"
-                padding={"5px"}
-                cursor="pointer"
-                border={"3px solid #4d77ff"}
+            <Box
+              className="custom__box"
+              padding={"5px"}
+              cursor="pointer"
+              border={"3px solid #4d77ff"}
+              key={index}
+            >
+              <Box bg={"#4d77ff"} borderRadius={5} textAlign="center">
+                <Text color={"white"} m={0} p={0}>
+                  {getDayName(elem.dt).date}/
+                  {getDayName(elem.dt).monthno <= 9
+                    ? `0${getDayName(elem.dt).monthno}`
+                    : getDayName(elem.dt).monthno}
+                  /{getDayName(elem.dt).year}
+                </Text>
+                <Text m={0} p={0} color={"white"}>
+                  {getDayName(elem.dt).day}
+                </Text>
+              </Box>
+              <Center m={1}>
+                <Avatar
+                  src={
+                    elem
+                      ? `http://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`
+                      : "http://openweathermap.org/img/wn/02d@2x.png"
+                  }
+                  width="60px"
+                  height="60px"
+                />{" "}
+              </Center>
+              <Center
+                m={0}
+                color="#4d77ff"
+                p={0}
+                letterSpacing={1}
+                fontSize={"16px"}
+                fontWeight={"bold"}
               >
-                <Box bg={"#4d77ff"} borderRadius={5} textAlign="center">
-                  <Text color={"white"} m={0} p={0}>
-                    {getDayName(elem.dt).date}/
-                    {getDayName(elem.dt).monthno <= 9
-                      ? `0${getDayName(elem.dt).monthno}`
-                      : getDayName(elem.dt).monthno}
-                    /{getDayName(elem.dt).year}
-                  </Text>
-                  <Text m={0} p={0} color={"white"}>
-                    {getDayName(elem.dt).day}
-                  </Text>
-                </Box>
-                <Center m={1}>
-                  <Avatar
-                    src={
-                      elem
-                        ? `http://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`
-                        : "http://openweathermap.org/img/wn/02d@2x.png"
-                    }
-                    width="60px"
-                    height="60px"
-                  />{" "}
-                </Center>
-                <Center
-                  m={0}
-                  color="#4d77ff"
-                  p={0}
-                  letterSpacing={1}
-                  fontSize={"16px"}
-                  fontWeight={"bold"}
+                {elem.weather[0].main}
+              </Center>
+              <Center gap="10px" marginTop={2}>
+                <BsFillSunFill fontSize={24} color="#4d77ff" />{" "}
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#4d77ff",
+                    fontWeight: "bold",
+                  }}
                 >
-                  {elem.weather[0].main}
-                </Center>
-                <Center gap="10px" marginTop={2}>
-                  <BsFillSunFill fontSize={24} color="#4d77ff" />{" "}
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#4d77ff",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {elem.temp.day} ℃
-                  </span>
-                </Center>
-                <Center gap="10px" marginTop={2}>
-                  <BsFillMoonFill fontSize={20} color="#4d77ff" />{" "}
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#4d77ff",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {elem.temp.night} ℃
-                  </span>
-                </Center>
-              </Box>
-            </>
+                  {elem.temp.day} ℃
+                </span>
+              </Center>
+              <Center gap="10px" marginTop={2}>
+                <BsFillMoonFill fontSize={20} color="#4d77ff" />{" "}
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#4d77ff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {elem.temp.night} ℃
+                </span>
+              </Center>
+            </Box>
           ) : (
-            <>
-              <Box className="custom__box" padding={"5px"} cursor="pointer">
-                <Box bg={"#4d77ff"} borderRadius={5} textAlign="center">
-                  <Text color={"white"} m={0} p={0}>
-                    {getDayName(elem.dt).date}/
-                    {getDayName(elem.dt).monthno <= 9
-                      ? `0${getDayName(elem.dt).monthno}`
-                      : getDayName(elem.dt).monthno}
-                    /{getDayName(elem.dt).year}
-                  </Text>
-                  <Text m={0} p={0} color={"white"}>
-                    {getDayName(elem.dt).day}
-                  </Text>
-                </Box>
-                <Center m={1}>
-                  <Avatar
-                    src={
-                      elem
-                        ? `http://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`
-                        : "http://openweathermap.org/img/wn/02d@2x.png"
-                    }
-                    width="60px"
-                    height="60px"
-                  />{" "}
-                </Center>
-                <Center
-                  m={0}
-                  color="#4d77ff"
-                  p={0}
-                  letterSpacing={1}
-                  fontSize={"16px"}
-                  fontWeight={"bold"}
-                >
-                  {elem.weather[0].main}
-                </Center>
-                <Center gap="10px" marginTop={2}>
-                  <BsFillSunFill fontSize={24} color="#4d77ff" />{" "}
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#4d77ff",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {elem.temp.day} ℃
-                  </span>
-                </Center>
-                <Center gap="10px" marginTop={2}>
-                  <BsFillMoonFill fontSize={20} color="#4d77ff" />{" "}
-                  <span
-                    style={{
-                      fontSize: "20px",
-                      color: "#4d77ff",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {elem.temp.night} ℃
-                  </span>
-                </Center>
+            <Box
+              className="custom__box"
+              padding={"5px"}
+              cursor="pointer"
+              key={index}
+            >
+              <Box bg={"#4d77ff"} borderRadius={5} textAlign="center">
+                <Text color={"white"} m={0} p={0}>
+                  {getDayName(elem.dt).date}/
+                  {getDayName(elem.dt).monthno <= 9
+                    ? `0${getDayName(elem.dt).monthno}`
+                    : getDayName(elem.dt).monthno}
+                  /{getDayName(elem.dt).year}
+                </Text>
+                <Text m={0} p={0} color={"white"}>
+                  {getDayName(elem.dt).day}
+                </Text>
               </Box>
-            </>
+              <Center m={1}>
+                <Avatar
+                  src={
+                    elem
+                      ? `http://openweathermap.org/img/wn/${elem.weather[0].icon}@2x.png`
+                      : "http://openweathermap.org/img/wn/02d@2x.png"
+                  }
+                  width="60px"
+                  height="60px"
+                />{" "}
+              </Center>
+              <Center
+                m={0}
+                color="#4d77ff"
+                p={0}
+                letterSpacing={1}
+                fontSize={"16px"}
+                fontWeight={"bold"}
+              >
+                {elem.weather[0].main}
+              </Center>
+              <Center gap="10px" marginTop={2}>
+                <BsFillSunFill fontSize={24} color="#4d77ff" />{" "}
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#4d77ff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {elem.temp.day} ℃
+                </span>
+              </Center>
+              <Center gap="10px" marginTop={2}>
+                <BsFillMoonFill fontSize={20} color="#4d77ff" />{" "}
+                <span
+                  style={{
+                    fontSize: "20px",
+                    color: "#4d77ff",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {elem.temp.night} ℃
+                </span>
+              </Center>
+            </Box>
           )
         )}
       </Grid>

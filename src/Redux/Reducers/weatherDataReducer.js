@@ -6,8 +6,8 @@ import {
 } from "../ActionTypes/weatherActionTypes";
 
 const init = {
-  CurrentCityData: getLocal("weather_data") || {},
-  ForcastData: getLocal("weather_data") || [],
+  CurrentCityData: getLocal("weather_data").getCurrentData || {},
+  ForcastData: getLocal("weather_data").weatherForcastData.daily || [],
   isDataLoading: getLocal("weather_data") ? false : true,
   dataError: false,
 };
@@ -18,6 +18,7 @@ export const weatherDataReducer = (state = init, { type, payload }) => {
       return { ...state, isDataLoading: true };
     case WEATHER_DATA_SUCCESS:
       return {
+        ...state,
         isDataLoading: false,
         dataError: false,
         CurrentCityData: payload.getCurrentData,

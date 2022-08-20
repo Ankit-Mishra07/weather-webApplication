@@ -13,7 +13,9 @@ const CityCard = ({ citydata, handleCardClick }) => {
         }
         borderRadius={5}
         cursor={"pointer"}
-        onClick={() => handleCardClick(citydata.name)}
+        onClick={() =>
+          handleCardClick(citydata.name, citydata.latitude, citydata.longitude)
+        }
       >
         {citydata.name}
       </Box>

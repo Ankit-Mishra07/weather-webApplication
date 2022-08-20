@@ -41,3 +41,25 @@ export const weatherDataByCurrentLocation = () => (dispatch) => {
     });
   }
 };
+
+export const getWeatherBySearchData =
+  (latitude, longitude) => async (dispatch) => {
+    try {
+      dispatch({ type: WEATHER_DATA_REQUEST });
+      const getCurrentData = await fetchWeatherDataByLocation(
+        latitude,
+        longitude
+      );
+
+      const data = await fetchForcastData(latitude, longitude);
+      const weatherForcastData = data.daily;
+      const payload = { getCurrentData, weatherForcastData };
+      setLocal("weather_data", payload);
+      dispatch({ type: WEATHER_DATA_SUCCESS, payload });
+    } catch (error) {
+      dispatch({
+        type: WEATHER_DATA_FAIL,
+        error: "Something went wrong, please again later",
+      });
+    }
+  };

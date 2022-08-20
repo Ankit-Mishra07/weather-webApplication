@@ -2,8 +2,12 @@ import { Flex, InputGroup, InputLeftAddon, Input, Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import CityCard from "../SearchedCityCard/CityCard";
 import { useSelector, useDispatch } from "react-redux";
-import { weatherDataByCurrentLocation } from "../../Redux/Actions/weatherAction";
+import {
+  getWeatherBySearchData,
+  weatherDataByCurrentLocation,
+} from "../../Redux/Actions/weatherAction";
 import { getLocal } from "../../utils/local";
+import { BiCurrentLocation } from "react-icons/bi";
 const Navbar = () => {
   const { isCityLoading, CityError, cityNames } = useSelector(
     (state) => state.cityState
@@ -14,9 +18,10 @@ const Navbar = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  const handleCardClick = (cityname) => {
+  const handleCardClick = (cityname, lati, longi) => {
     setShowSearched(false);
     setInput(cityname);
+    dispatch(getWeatherBySearchData(lati, longi));
   };
   useEffect(() => {
     dispatch(weatherDataByCurrentLocation());
@@ -37,7 +42,23 @@ const Navbar = () => {
           bg="whiteAlpha.700"
           position="relative"
         >
-          <InputLeftAddon children="City" bg="whiteAlpha.700" />
+          <InputLeftAddon
+            children={
+              <BiCurrentLocation
+                color="#4d77ff"
+                fontSize={20}
+                cursor="pointer"
+                onClick={() => {
+                  dispatch(weatherDataByCurrentLocation());
+                  setInput(CurrentCityData.name);
+                  setTimeout(() => {
+                    setInput(getLocal("weather_data").getCurrentData.name);
+                  }, 1000);
+                }}
+              />
+            }
+            bg="whiteAlpha.700"
+          />
           <Input
             type="text"
             placeholder="Search..."

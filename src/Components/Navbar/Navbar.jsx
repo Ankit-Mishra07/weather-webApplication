@@ -55,6 +55,8 @@ const Navbar = () => {
             display={"flex"}
             flexDirection={"column"}
             gap={2}
+            bg="white"
+            zIndex={11}
           >
             {showSearched &&
               input &&

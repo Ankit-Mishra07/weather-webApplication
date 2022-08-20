@@ -26,7 +26,7 @@ const Descriptive = () => {
   const { CurrentCityData, ForcastData, isDataLoading, dataError } =
     useSelector((state) => state.weatherState);
   return (
-    <Box className={"custom__box"}>
+    <Box className={"custom__box"} h={300}>
       <VStack spacing={2}>
         <SmallCard
           name={"Feel Temp."}

@@ -59,7 +59,7 @@ const CityName = () => {
   }, [currentTime]);
   console.log(ForcastData);
   return (
-    <Box className="custom__box" position={"relative"}>
+    <Box className="custom__box" position={"relative"} h={300}>
       <AiOutlineReload
         className={`text__color ${spin && "spin"}`}
         style={{
@@ -67,7 +67,7 @@ const CityName = () => {
           top: 6,
           right: 6,
           fontWeight: "bold",
-          fontSize: "18px",
+          fontSize: "20px",
           cursor: "pointer",
         }}
         onClick={() => {
@@ -94,18 +94,29 @@ const CityName = () => {
             </Badge>
           </Box>
         </Flex>
-        <Box textAlign={"center"}>
-          <Text
-            className="text__color"
-            fontSize={["30px", "34px", "36px", "38px"]}
-          >
-            {(CurrentCityData.main.temp - 273).toString().substring(0, 5)} ℃
-          </Text>
+        <Box textAlign={"center"} marginTop={4}>
           <Text
             className="text__color"
             fontSize={["28px", "32px", "34px", "36px"]}
           >
             {CurrentCityData.name}
+          </Text>
+          <Text
+            className="text__color"
+            fontSize={["40px", "46px", "48px", "52px"]}
+            fontWeight={"bold"}
+            letterSpacing={1}
+            // backgroundImage="linear-gradient(to bottom right, rgb(143, 143, 253), #15f3f3)"
+            borderRadius={10}
+          >
+            {(CurrentCityData.main.temp - 273).toString().substring(0, 5)} ℃
+          </Text>
+          <Text
+            className="text__color"
+            fontSize={["28px", "30px", "30px", "32px"]}
+            textTransform="capitalize"
+          >
+            {CurrentCityData.weather[0].description}
           </Text>
         </Box>
       </Box>

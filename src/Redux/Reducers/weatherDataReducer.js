@@ -7,7 +7,7 @@ import {
 
 const init = {
   CurrentCityData: getLocal("weather_data").getCurrentData || {},
-  ForcastData: getLocal("weather_data").weatherForcastData.daily || [],
+  ForcastData: getLocal("weather_data").weatherForcastData || [],
   isDataLoading: getLocal("weather_data") ? false : true,
   dataError: false,
 };

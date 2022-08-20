@@ -57,7 +57,6 @@ const CityName = () => {
       };
     }, 1000);
   }, [currentTime]);
-  console.log(ForcastData);
   return (
     <Box className="custom__box" position={"relative"} h={300}>
       <AiOutlineReload

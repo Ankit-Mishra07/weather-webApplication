@@ -1,5 +1,6 @@
 export const getLocal = (key) => {
-  return JSON.parse(localStorage.getItem(key));
+  let get = JSON.parse(localStorage.getItem(key));
+  return get;
 };
 
 export const setLocal = (key, data) => {

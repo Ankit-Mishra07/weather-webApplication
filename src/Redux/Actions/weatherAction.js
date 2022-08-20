@@ -22,6 +22,7 @@ export const weatherDataByCurrentLocation = () => (dispatch) => {
       );
 
       const data = await fetchForcastData(latitude, longitude);
+      console.log("action", data);
       const weatherForcastData = data.daily;
       const payload = { getCurrentData, weatherForcastData };
       setLocal("weather_data", payload);

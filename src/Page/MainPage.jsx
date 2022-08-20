@@ -6,6 +6,7 @@ import Descriptive from "../Components/DescriptiveDataCard/Descriptive";
 import Map from "../Components/Map/Map";
 import Navbar from "../Components/Navbar/Navbar";
 import SunGraph from "../Components/SunGraph/SunGraph";
+import TempGraph from "../Components/TemperatureGraph/TempGraph";
 import { weatherDataByCurrentLocation } from "../Redux/Actions/weatherAction";
 
 const MainPage = () => {
@@ -36,6 +37,7 @@ const MainPage = () => {
         gap={10}
       >
         <SunGraph />
+        <TempGraph />
       </Grid>
     </>
   );

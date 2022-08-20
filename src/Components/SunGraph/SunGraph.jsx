@@ -69,12 +69,16 @@ const SunGraph = () => {
     <Box className="custom__box" h={400}>
       <Flex justifyContent={"space-between"}>
         <Box>
-          <Text>Sunrise</Text>
-          <Text>{ChangeTimeFormat(ForcastData[0].sunrise)}</Text>
+          <Text className="text__color">Sunrise</Text>
+          <Text className="text__color" fontSize={12}>
+            {ChangeTimeFormat(ForcastData[0].sunrise)}
+          </Text>
         </Box>
         <Box>
-          <Text>Sunset</Text>
-          <Text>{ChangeTimeFormat(ForcastData[0].sunset)}</Text>
+          <Text className="text__color">Sunset</Text>
+          <Text className="text__color" fontSize={12}>
+            {ChangeTimeFormat(ForcastData[0].sunset)}
+          </Text>
         </Box>
       </Flex>
       <Chart

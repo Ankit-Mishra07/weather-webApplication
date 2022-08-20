@@ -26,3 +26,20 @@
 .spin {
   animation: 1.5s linear infinite spinner;
 }
+
+.chart__parent {
+  overflow: scroll;
+  width: 100%;
+}
+.chart__parent::-webkit-scrollbar {
+  width: 5px;
+}
+.chart__parent::-webkit-scrollbar-track {
+  width: 5px;
+  background-color: "lightgray";
+}
+.chart__parent::-webkit-scrollbar-thumb {
+  background-color: #8ba6fd;
+  width: 5px;
+  border-radius: 10px;
+}

@@ -18,3 +18,11 @@ export const fetchForcastData = async (latitude, longitude) => {
   const data = await res.json();
   return data;
 };
+
+export const fetchDataForHourly = async (latitude, longitude) => {
+  const res = await fetch(
+    `${baseUrl}/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely&units=metric&appid=${API_KEY}`
+  );
+  const data = await res.json();
+  return data;
+};

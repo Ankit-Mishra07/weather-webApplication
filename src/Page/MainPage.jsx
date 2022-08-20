@@ -27,7 +27,7 @@ const MainPage = () => {
       >
         <CityName />
         <Descriptive />
-        {/* <Map /> */}
+        <Map />
       </Grid>
       <br />
       <br />

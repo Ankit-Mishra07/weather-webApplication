@@ -1,13 +1,15 @@
 import { Avatar, Badge, Box, Flex, Text } from "@chakra-ui/react";
 import React, { memo, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineReload } from "react-icons/ai";
+import { getWeatherBySearchData } from "../../Redux/Actions/weatherAction";
 const CityName = () => {
   const { CurrentCityData, ForcastData, isDataLoading, dataError } =
     useSelector((state) => state.weatherState);
   const [currentTime, setCurrentTime] = useState();
   const [currentDate, setCurrentDate] = useState();
   const [spin, setSpin] = useState(false);
+  const dispatch = useDispatch();
   const days = [
     "Sunday",
     "Monday",
@@ -71,6 +73,15 @@ const CityName = () => {
         }}
         onClick={() => {
           setSpin(true);
+          dispatch(
+            getWeatherBySearchData(
+              CurrentCityData.coord.lat,
+              CurrentCityData.coord.lon
+            )
+          );
+          setTimeout(() => {
+            setSpin(false);
+          }, 1500);
         }}
       />
       <Box>

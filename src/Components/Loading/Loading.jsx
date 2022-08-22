@@ -10,6 +10,7 @@ const Loading = () => {
       alignItems={"center"}
       position={"fixed"}
       zIndex={10}
+      bg="white"
     >
       <Spinner
         thickness="4px"

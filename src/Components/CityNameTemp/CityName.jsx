@@ -89,7 +89,7 @@ const CityName = () => {
           <Avatar
             src={
               CurrentCityData
-                ? `http://openweathermap.org/img/wn/${CurrentCityData.weather[0].icon}@2x.png`
+                ? `http://openweathermap.org/img/wn/${CurrentCityData?.weather[0]?.icon}@2x.png`
                 : "http://openweathermap.org/img/wn/02d@2x.png"
             }
             width="60px"
@@ -119,7 +119,7 @@ const CityName = () => {
             // backgroundImage="linear-gradient(to bottom right, rgb(143, 143, 253), #15f3f3)"
             borderRadius={10}
           >
-            {(CurrentCityData.main.temp - 273).toString().substring(0, 5)} ℃
+            {(CurrentCityData?.main.temp - 273).toString().substring(0, 5)} ℃
           </Text>
           <Text
             className="text__color"

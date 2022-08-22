@@ -6,8 +6,12 @@ import {
 } from "../ActionTypes/weatherActionTypes";
 
 const init = {
-  CurrentCityData: getLocal("weather_data").getCurrentData || {},
-  ForcastData: getLocal("weather_data").weatherForcastData || [],
+  CurrentCityData: getLocal("weather_data")
+    ? getLocal("weather_data").getCurrentData
+    : {},
+  ForcastData: getLocal("weather_data")
+    ? getLocal("weather_data").weatherForcastData
+    : [],
   isDataLoading: getLocal("weather_data") ? false : true,
   dataError: false,
 };

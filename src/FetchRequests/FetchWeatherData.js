@@ -1,6 +1,4 @@
-// const API_KEY = "1ddf6812bbb8afff8c25ea8c00dacac5";
-// const API_KEY = "931d5a3b1bee118ece374e2777410d27";
-const API_KEY = "c0d290eeee9dd399b017a6d2ba64be7e";
+const API_KEY = "9102fcb602fc2c718391570e2dab5618";
 const baseUrl = "https://api.openweathermap.org/data/2.5";
 
 export const fetchWeatherDataByLocation = async (latitude, longitude) => {

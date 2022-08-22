@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import Chart from "react-apexcharts";
 import { getLocal, setLocal } from "../../utils/local";
-const API_KEY = "c0d290eeee9dd399b017a6d2ba64be7e";
+const API_KEY = "9102fcb602fc2c718391570e2dab5618";
 const baseUrl = "https://api.openweathermap.org/data/2.5";
 const TempGraph = () => {
   const [data, setData] = useState();
@@ -19,7 +19,6 @@ const TempGraph = () => {
       `${baseUrl}/onecall?lat=${CurrentCityData.coord.lat}&lon=${CurrentCityData.coord.lat}&exclude=minutely&units=metric&appid=${API_KEY}`
     );
     const dat = await res.json();
-    console.log(dat);
     setLocal("hourly_data", dat);
     setData(dat);
   };

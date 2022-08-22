@@ -44,25 +44,33 @@ Detect your current location for displaying weather data
 </h4>
 <br/>
 <img align="center" src="https://user-images.githubusercontent.com/90400569/186003491-6cd1a8ad-3cce-4050-a0f1-36eb1866b676.png"/>
-![image](https://user-images.githubusercontent.com/90400569/186004220-f0ff187f-4834-4c5b-b875-d077014ffdf8.png)
-![image](https://user-images.githubusercontent.com/90400569/186004292-6175834a-256f-402f-a085-620f0990b676.png)
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186004220-f0ff187f-4834-4c5b-b875-d077014ffdf8.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186004292-6175834a-256f-402f-a085-620f0990b676.png"/>
+<br/>
+<br/>
 
 <h4>
 Search weather details according to the city with search suggestions of city
 </h4>
-![image](https://user-images.githubusercontent.com/90400569/186004702-8e5d544d-9a0e-4572-99e1-c6bd3a8ac4e7.png)
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186004702-8e5d544d-9a0e-4572-99e1-c6bd3a8ac4e7.png"/>
+<br/>
+<br/>
 
 <h4>Displaying of seven-day forecast weather</h4>
-![image](https://user-images.githubusercontent.com/90400569/186004959-70e2337d-378e-474a-97e6-f3c646994068.png)
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186004959-70e2337d-378e-474a-97e6-f3c646994068.png"/>
+<br/>
+<br/>
 
+<div align="center">
 <h4>Responsive for every screen size</h4>
-![image](https://user-images.githubusercontent.com/90400569/186005498-6f84a857-6a10-4c9c-afdb-916cb52722b5.png)
-![image](https://user-images.githubusercontent.com/90400569/186005563-7dae5045-fc05-4917-867a-7d8be93427ba.png)
-![image](https://user-images.githubusercontent.com/90400569/186005642-4f52d4d5-a440-427f-b519-9c3bbeaf65ba.png)
-![image](https://user-images.githubusercontent.com/90400569/186005717-1b795222-a002-4f17-987f-0703d3409d01.png)
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186005498-6f84a857-6a10-4c9c-afdb-916cb52722b5.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186005563-7dae5045-fc05-4917-867a-7d8be93427ba.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186005642-4f52d4d5-a440-427f-b519-9c3bbeaf65ba.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/90400569/186005717-1b795222-a002-4f17-987f-0703d3409d01.png"/>
+</div>
 
-
-
+<br/>
+<br/>
 
 ### Prerequisites
 

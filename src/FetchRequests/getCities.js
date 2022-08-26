@@ -1,5 +1,5 @@
 import { City } from "country-state-city";
 
 export const getCityNames = () => {
-  return City.getCitiesOfCountry("IN");
+  return City.getAllCities();
 };

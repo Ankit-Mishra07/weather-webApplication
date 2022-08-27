@@ -6,7 +6,7 @@
 <h2 align="center">Tech Stack</h2>
 
 <h5 align="center">
-<>REACT<> || <>REDUX<> || <>REDUX-THUNK<> || <>REACT-APEXCHARTS<> || <>REACT-TAOSTIFY<> 
+<>REACT<> || <>REDUX<> || <>REDUX-THUNK<> || <>REACT-APEXCHARTS<> || <>REACT-TAOSTIFY<> || <>CHAKRA-UI<> 
 </h5>
 <h5 align="center"><>GOOGLE-MAP-API<> || <>COUNTRY-STATE-CITY PACKAGE<> || <>OPEN-WEATHER-API<>  || <>LOCAL-STORAGE<> || <>REST API<> </h5>
 
